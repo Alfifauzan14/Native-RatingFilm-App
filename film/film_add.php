@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../includes/config.php';
 
 if (isset($_POST['submit'])) {
   $judul     = $_POST['judul'];
@@ -7,27 +7,23 @@ if (isset($_POST['submit'])) {
   $tahun     = $_POST['tahun'];
   $deskripsi = $_POST['deskripsi'];
 
-  // Ambil nama file
   $posterName = $_FILES['poster']['name'];
   $tmpName    = $_FILES['poster']['tmp_name'];
 
-  // Bikin nama unik biar tidak bentrok
   $newName = time() . "_" . $posterName;
 
-  // Simpan ke folder uploads/
-  move_uploaded_file($tmpName, 'uploads/' . $newName);
+  move_uploaded_file($tmpName, '../uploads/' . $newName);
 
-  // Insert ke database
   mysqli_query($conn, "INSERT INTO film (judul, genre, tahun, deskripsi, poster) 
                         VALUES ('$judul', '$genre', '$tahun', '$deskripsi', '$newName')");
 
-  header("Location: index.php");
+  header("Location: daftar.php");
   exit;
 }
 ?>
 <div class="app-container">
   <form method="post" enctype="multipart/form-data" class="film-form">
-    <h2 class="tambah">Tambah Film</h2>
+    <h2>Tambah Film</h2>
     <div class="input-group">
       <label for="judul">Judul :</label>
       <input type="text" name="judul" required>
@@ -49,7 +45,7 @@ if (isset($_POST['submit'])) {
       <input type="file" name="poster" required>
     </div>
     <button type="submit" name="submit" class="btn-submit">Tambah Film</button>
-    <a href="index.php" class="register-link">⬅ Kembali ke daftar</a>
+    <a href="daftar.php" class="register-link">⬅ Kembali ke daftar</a>
   </form>
 </div>
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="../css/app.css">

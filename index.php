@@ -1,59 +1,34 @@
-<?php
-include 'config.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'includes/header.php'; ?>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aplikasi Film</title>
-  <link rel="stylesheet" href="app.css">
+  <title>Beranda | FilmRate</title>
+  <style>
+    .dashboard-beranda {
+      text-align: center;
+      margin-top: 100px;
+    }
+    .dashboard-beranda h1 {
+      font-size: 50px;
+      color: yellow;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px #000000;
+
+    }
+    .dashboard-beranda p {
+      font-size: 30px;
+      color: #000000ff;
+    }
+    </style>
 </head>
 
 <body>
-  <div class="app-container">
-    <header>
-      <h1>🎬 Daftar Film</h1>
-      <nav>
-        <a href="film_add.php" class="btn">Tambah Film</a>
-        <a href="logout.php" class="btn logout">Logout</a>
-      </nav>
-    </header>
-
-    <table class="film-table">
-      <thead>
-        <tr>
-          <!-- <th>ID</th> -->
-          <th>Judul</th>
-          <th>Genre</th>
-          <th>Tahun</th>
-          <th>Deskripsi</th>
-          <th>Poster</th>
-          <th>Aksi</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php
-        $data = mysqli_query($conn, "SELECT * FROM film");
-        while ($film = mysqli_fetch_assoc($data)) {
-        ?>
-          <tr>
-            <td><?php echo $film['judul'] ?></td>
-            <td><?php echo $film['genre'] ?></td>
-            <td><?php echo $film['tahun'] ?></td>
-            <td><?php echo $film['deskripsi'] ?></td>
-            <td><img src="uploads/<?= $film['poster'] ?>" width="60"></td>
-            <td>
-              <a href="detail.php?id=<?= $film['id_film'] ?>" class="aksi detail">Detail</a>
-              <a href="film_edit.php?id=<?= $film['id_film'] ?>" class="aksi edit">Edit</a>
-              <a href="film_delete.php?id=<?= $film['id_film'] ?>" class="aksi hapus" onclick="return confirm('Yakin hapus data ini?')">Hapus</a>
-            </td>
-          </tr>
-        <?php } ?>
-      </tbody>
-    </table>
+  <div class="dashboard-beranda">
+    <h1>Beranda</h1>
+    <p>Selamat datang di <strong>FilmRate</strong> 🎬</p>
   </div>
 </body>
 
 </html>
+<?php include 'includes/footer.php'; ?>

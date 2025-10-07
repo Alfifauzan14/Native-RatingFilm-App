@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'includes/config.php';
 
 if (isset($_POST['submit'])) {
   $email = $_POST['email'];
@@ -36,4 +36,4 @@ if (isset($_POST['submit'])) {
   </form>
   <a href="register.php" class="register-link">Register</a>
 </div>
-<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="css/auth.css">

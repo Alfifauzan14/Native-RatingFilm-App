@@ -6,12 +6,13 @@
   font-family: Arial, sans-serif;
 }
 
+/* Warna dasar halaman */
 body {
-  background: #f4f7fa;
-  color: #333;
+  background: #ffffff;
+  color: #000000;
 }
 
-/* Container */
+/* Container utama aplikasi */
 .app-container {
   width: 90%;
   max-width: 1000px;
@@ -22,7 +23,7 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* Header */
+/* HEADER (judul + tombol navigasi) */
 header {
   display: flex;
   justify-content: space-between;
@@ -35,6 +36,7 @@ header h1 {
   color: #0d4d72;
 }
 
+/* Tombol navigasi di header */
 header nav .btn {
   background: #2196f3;
   color: #fff;
@@ -45,25 +47,19 @@ header nav .btn {
   transition: background 0.2s;
 }
 
+/* Efek hover tombol */
 header nav .btn:hover {
   background: #1976d2;
 }
 
-header nav .btn.logout {
-  background: #f44336;
-}
-
-header nav .btn.logout:hover {
-  background: #d32f2f;
-}
-
-/* Tabel */
+/* TABEL FILM */
 .film-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
 }
 
+/* Isi tabel (header & data) */
 .film-table th,
 .film-table td {
   border: 1px solid #ddd;
@@ -71,20 +67,22 @@ header nav .btn.logout:hover {
   text-align: center;
 }
 
+/* Header tabel */
 .film-table th {
   background: #0d4d72;
   color: #fff;
 }
-
+/* Baris genap warna berbeda (efek zebra) */
 .film-table tr:nth-child(even) {
   background: #f9f9f9;
 }
 
+/* Gambar poster di tabel */
 .film-table img {
-  border-radius: 6px;
+  border-radius: 6px; /* Sudut melengkung */
 }
 
-/* Tombol Aksi */
+/* TOMBOL AKSI DI TABEL */
 .aksi {
   text-decoration: none;
   padding: 5px 10px;
@@ -95,31 +93,27 @@ header nav .btn.logout:hover {
   color: #fff;
 }
 
-.aksi.detail {
-  background: #4caf50;
-}
+/* Warna tombol aksi berbeda-beda */
+.aksi.detail { background: #4caf50; }
+.aksi.edit   { background: #2196f3; }
+.aksi.hapus  { background: #f44336; }
 
-.aksi.edit {
-  background: #2196f3;
-}
-
-.aksi.hapus {
-  background: #f44336;
-}
-
+/* Efek hover tombol aksi */
 .aksi:hover {
   opacity: 0.8;
 }
 
-/* Form Tambah/Edit Film */
+/* FORM TAMBAH / EDIT FILM */
 .film-form {
   margin-top: 20px;
 }
 
+/* Setiap grup input (label + input) */
 .film-form .input-group {
   margin-bottom: 15px;
 }
 
+/* Gaya input dan textarea */
 .film-form input[type="text"],
 .film-form input[type="number"],
 .film-form input[type="file"],
@@ -131,7 +125,7 @@ header nav .btn.logout:hover {
   outline: none;
 }
 
-/* Tombol submit umum untuk form film */
+/* Tombol umum di form tambah film */
 .btn-submit {
   width: 100%;
   background: #2196f3;
@@ -146,7 +140,7 @@ header nav .btn.logout:hover {
   margin-bottom: 10px;
 }
 
-/* Form container */
+/* Container form */
 .film-form {
   max-width: 400px;
   margin: 40px auto;
@@ -156,7 +150,7 @@ header nav .btn.logout:hover {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Label + input sama kayak add */
+/* Label form */
 .film-form label {
   display: block;
   font-weight: bold;
@@ -164,6 +158,7 @@ header nav .btn.logout:hover {
   color: #333;
 }
 
+/* Input dan textarea form */
 .film-form input[type="text"],
 .film-form input[type="number"],
 .film-form input[type="file"],
@@ -176,17 +171,17 @@ header nav .btn.logout:hover {
   font-size: 14px;
 }
 
-/* Preview poster */
+/* Preview gambar poster */
 .poster-preview {
   border: 2px solid #ddd;
   border-radius: 6px;
   margin-bottom: 16px;
 }
 
-/* Tombol update */
+/* Tombol UPDATE film */
 .btn-update {
   width: 100%;
-  background: #2196f3; /* biru */
+  background: #2196f3;
   color: #fff;
   border: none;
   padding: 12px;
@@ -197,11 +192,12 @@ header nav .btn.logout:hover {
   transition: background 0.2s;
 }
 
+/* Hover update */
 .btn-update:hover {
   background: #1976d2;
 }
 
-/* Link kembali */
+/* LINK KEMBALI / REGISTER */
 .register-link {
   display: block;
   text-align: center;
@@ -214,7 +210,7 @@ header nav .btn.logout:hover {
   text-decoration: underline;
 }
 
-/* Detail Film */
+/* HALAMAN DETAIL FILM */
 .film-detail {
   max-width: 600px;
   margin: 40px auto;
@@ -225,6 +221,7 @@ header nav .btn.logout:hover {
   text-align: center;
 }
 
+/* Judul dan meta info film */
 .film-title {
   margin-bottom: 5px;
   color: #333;
@@ -235,18 +232,20 @@ header nav .btn.logout:hover {
   margin-bottom: 15px;
 }
 
+/* Poster di halaman detail */
 .film-poster {
   max-width: 250px;
   border-radius: 8px;
   margin: 15px 0;
 }
 
+/* Deskripsi film */
 .film-desc {
   text-align: justify;
   margin-bottom: 20px;
 }
 
-/* Rating Section */
+/* RATING FILM */
 .rating-title {
   margin-top: 25px;
   margin-bottom: 15px;
@@ -257,6 +256,7 @@ header nav .btn.logout:hover {
   margin-bottom: 20px;
 }
 
+/* Setiap item ulasan rating */
 .rating-item {
   background: #f9f9f9;
   padding: 10px 15px;
@@ -264,10 +264,12 @@ header nav .btn.logout:hover {
   border-radius: 6px;
 }
 
+/* Warna bintang rating */
 .rating-item .star {
   color: #ff9800;
 }
 
+/* Form penilaian */
 .rating-form label {
   display: block;
   margin: 10px 0 5px;
@@ -284,14 +286,14 @@ header nav .btn.logout:hover {
   font-size: 14px;
 }
 
-/* Login reminder */
+/* LOGIN REMINDER */
 .login-reminder {
-  color: #d32f2f;
+  color: #d32f2f; /* Merah terang */
   font-weight: bold;
 }
 
-.tambah {
+h2 {
+  color: black;
   text-align: center;
   margin-bottom: 10px;
 }
-

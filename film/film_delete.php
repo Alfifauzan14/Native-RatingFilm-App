@@ -1,7 +1,7 @@
 <?php
-include 'config.php';
+include '../includes/config.php';
 
 $id = $_GET['id'];
 mysqli_query($conn, "DELETE FROM film WHERE id_film=$id");
-header("Location: index.php");
+header("Location: daftar.php");
 ?>

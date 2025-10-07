@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../includes/config.php';
 
 $id = $_GET['id'];
 $film = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM film WHERE id_film=$id"));
@@ -8,7 +8,7 @@ $ratings = mysqli_query($conn, "SELECT r.*, u.nama FROM rating r JOIN user u ON 
 <div class="film-detail">
   <h2 class="film-title"><?= $film['judul'] ?></h2>
   <p class="film-meta"><?= $film['genre'] ?> | <?= $film['tahun'] ?></p>
-  <img src="uploads/<?= $film['poster'] ?>" class="film-poster">
+  <img src="../uploads/<?= $film['poster'] ?>" class="film-poster">
   <p class="film-title"><?= $film['deskripsi'] ?></p>
 
   <h3 class="rating-title">Rating</h3>
@@ -22,19 +22,30 @@ $ratings = mysqli_query($conn, "SELECT r.*, u.nama FROM rating r JOIN user u ON 
     <?php } ?>
   </div>
 
-  <?php if (isset($_SESSION['user_id'])) { ?>
+  <?php
+  if (isset($_SESSION['user_id'])) { 
+  ?>
     <form method="post" action="rating_add.php" class="rating-form">
-      <input type="hidden" name="id_film" value="<?= $film['id_film'] ?>">
-      <label>Nilai (1-5):</label>
-      <input type="number" name="nilai" min="1" max="5" required>
-      <label>Komentar:</label>
-      <textarea name="komentar"></textarea>
-      <button type="submit" name="submit" class="btn-submit">Kirim Rating</button>
+      <div>
+        <input type="hidden" name="id_film" value="<?= $film['id_film'] ?>">
+        <label>Nilai (1-5):</label>
+      </div>
+      <div>
+        <input type="number" name="nilai" min="1" max="5" required>
+        <label>Komentar:</label>
+      </div>
+      <div>
+        <textarea name="komentar"></textarea>
+        <button type="submit" name="submit" class="btn-submit">Kirim Rating</button>
+      </div>
     </form>
-  <?php } else { ?>
+  <?php 
+  } else { 
+  ?>
     <p class="login-reminder">Login dulu untuk beri rating</p>
-  <?php } ?>
-
-  <a href="index.php" class="register-link">⬅ Kembali ke daftar</a>
+  <?php 
+  } 
+  ?>
+  <a href="daftar.php" class="register-link">⬅ Kembali ke daftar</a>
 </div>
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="../css/app.css">

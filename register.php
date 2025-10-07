@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include 'includes/config.php';
 
 if (isset($_POST['submit'])) {
   mysqli_query($conn, "INSERT INTO user (nama,email,password) 
@@ -32,4 +32,4 @@ if (isset($_POST['submit'])) {
   </form>
   <a href="login.php" class="register-link">Sudah punya akun? Login</a>
 </div>
-<link rel="stylesheet" href="auth.css">
+<link rel="stylesheet" href="css/auth.css">

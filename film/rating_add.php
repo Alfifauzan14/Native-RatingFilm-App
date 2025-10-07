@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../includes/config.php';
 
 if (isset($_POST['submit']) && isset($_SESSION['user_id'])) {
   $id_film = $_POST['id_film'];

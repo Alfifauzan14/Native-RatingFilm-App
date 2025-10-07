@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+include '../includes/config.php';
 
 $id = $_GET['id'];
 $film = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM film WHERE id_film=$id"));
@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
   $poster = $_FILES['poster']['name'];
 
   if ($poster) {
-    move_uploaded_file($_FILES['poster']['tmp_name'], 'uploads/' . $poster);
+    move_uploaded_file($_FILES['poster']['tmp_name'], '../uploads/' . $poster);
     mysqli_query($conn, "UPDATE film SET 
             judul='$judul', 
             genre='$genre', 
@@ -29,38 +29,10 @@ if (isset($_POST['submit'])) {
             WHERE id_film=$id");
   }
 
-  header("Location: index.php");
+  header("Location: daftar.php");
 }
 
 ?>
-<!-- <form method="post" enctype="multipart/form-data">
-  <div>
-    <label for="judul">Judul :</label>
-    <input type="text" name="judul" value="<?= $film['judul'] ?>" required>
-  </div>
-  <div>
-    <label for="genre">Genre :</label>
-    <input type="text" name="genre" value="<?= $film['genre'] ?>" required>
-  </div>
-  <div>
-    <label for="tahun">Tahun :</label>
-    <input type="number" name="tahun" value="<?= $film['tahun'] ?>" required>
-  </div>
-  <div>
-    <label for="deskripsi">Deskripsi</label>
-    <textarea name="deskripsi"><?= $film['deskripsi'] ?></textarea>
-  </div>
-  <div>
-    <label for="file">Poster</label>
-    <input type="file" name="poster" required>
-  </div>
-  <div>
-    <img src="uploads/<?= $film['poster'] ?>" width="50">
-  </div>
-  <div>
-    <input type="submit" name="submit" value="Tambah Film">
-  </div>
-</form> -->
 <form method="post" enctype="multipart/form-data" class="film-form">
   <div>
     <label for="judul">Judul :</label>
@@ -84,11 +56,11 @@ if (isset($_POST['submit'])) {
   </div>
   <div>
     <p>Poster lama:</p>
-    <img src="uploads/<?= $film['poster'] ?>" width="120" class="poster-preview">
+    <img src="../uploads/<?= $film['poster'] ?>" width="120" class="poster-preview">
   </div>
   <div>
     <button type="submit" name="submit" class="btn-update">Update Film</button>
   </div>
-  <a href="index.php" class="register-link">⬅ Kembali ke daftar</a>
+  <a href="daftar.php" class="register-link">⬅ Kembali ke daftar</a>
 </form>
-<link rel="stylesheet" href="app.css">
+<link rel="stylesheet" href="../css/app.css">
